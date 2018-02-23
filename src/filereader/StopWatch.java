@@ -113,6 +113,7 @@ public class StopWatch {
 		return data;
 	}
 	
+	/*
 	public static void main(String[] args) {
 		StopWatch sw = new StopWatch();
 		
@@ -134,6 +135,6 @@ public class StopWatch {
 		sw.stop();
 		System.out.printf("Read %d chars in %.6f sec.\n", readToStringWithBuffer.length(), sw.getElapse());
 		
-	}
+	} */
 
 }
