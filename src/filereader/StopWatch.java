@@ -6,6 +6,10 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
+/**
+ * A class uses for computes elapsed time between a start and stop time.
+ * @author Thanaphon Keawjam
+ */
 public class StopWatch {
 	
 	private static final double NANOSECOND = 1.0E-9;
@@ -13,27 +17,45 @@ public class StopWatch {
 	private long stopTime = 0;
 	private boolean running;
 	
+	/**
+	 * If the stopwatch is running, then return the time since start() until the current time.
+	 * If stopwatch is stopped, then return the time between the start and stop times.
+	 * @return the elapsed time in seconds, as accurately as possible.
+	 */
 	public double getElapse(){
 		if(running) return (System.nanoTime() - startTime) * NANOSECOND;
 		else return (stopTime - startTime) * NANOSECOND;
 	}
 	
+	/**
+	 * Return status of stopwatch.
+	 * @return true if the stopwatch is running, false if stopwatch is stopped. 
+	 */
 	public boolean isRunning(){
 		return running;
 	}
 	
+	/**
+	 * Reset the stopwatch and start if if stopwatch is not running.
+	 * If the stopwatch is already running then start does nothing. 
+	 */
 	public void start(){
 		if(running) return;
 		startTime = System.nanoTime();
 		running = true;
 	}
 	
+	/**
+	 * Stop the stopwatch. 
+	 * If the stopwatch is already stopped, then stop does nothing. 
+	 */
 	public void stop(){
 		if(!running) return;
 		stopTime = System.nanoTime();
 		running = false;
 	}
 	
+	/*
 	public static String readFileToString(String filename){
 		String data = "";
 		InputStream in = null;
@@ -113,7 +135,6 @@ public class StopWatch {
 		return data;
 	}
 	
-	/*
 	public static void main(String[] args) {
 		StopWatch sw = new StopWatch();
 		
